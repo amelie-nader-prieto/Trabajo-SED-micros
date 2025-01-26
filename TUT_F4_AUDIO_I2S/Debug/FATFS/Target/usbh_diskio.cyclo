@@ -1,0 +1,5 @@
+../FATFS/Target/usbh_diskio.c:71:9:USBH_initialize	1
+../FATFS/Target/usbh_diskio.c:83:9:USBH_status	2
+../FATFS/Target/usbh_diskio.c:111:9:USBH_read	6
+../FATFS/Target/usbh_diskio.c:155:9:USBH_write	8
+../FATFS/Target/usbh_diskio.c:204:9:USBH_ioctl	8

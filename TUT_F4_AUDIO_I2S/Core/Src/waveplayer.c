@@ -112,7 +112,7 @@ uint8_t PlayerInit(uint32_t AudioFreq)
   */ 
 AUDIO_ErrorTypeDef AUDIO_PLAYER_Start(uint8_t idx)
 {
-  uint bytesread;
+  int bytesread;
 
   f_close(&WavFile);
   if(AUDIO_GetWavObjectNumber() > idx)
