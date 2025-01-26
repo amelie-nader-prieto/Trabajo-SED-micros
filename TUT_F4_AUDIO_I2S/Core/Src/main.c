@@ -37,7 +37,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define VOL_MAX 100
+#define VOL_MAX 100 // volumen máximo
 uint32_t elapsedTime = 0;
 /* USER CODE END PD */
 
@@ -56,7 +56,7 @@ DMA_HandleTypeDef hdma_spi3_tx;
 TIM_HandleTypeDef htim2; // Definimos TIM2
 
 /* USER CODE BEGIN PV */
-uint16_t adc1_raw = 0;
+uint16_t adc1_raw = 0; // valor del potenciómetro
 uint16_t volumen = 0;
 /* USER CODE END PV */
 
@@ -73,6 +73,8 @@ static void MX_TIM2_Init(void); // Prototipo de inicialización de TIM2
 
 /* USER CODE BEGIN PFP */
 void WaitFor10Seconds(void);
+uint16_t obtener_volumen(uint16_t adc_raw);
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -166,6 +168,9 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_ADC_Start_IT(&hadc1);
   HAL_TIM_Base_Start_IT(&htim2); // Inicia el temporizador con interrupciones
+
+  HAL_ADC_Init(&hadc1);
+  HAL_ADC_Start_IT(&hadc1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -280,7 +285,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.NbrOfConversion = 1;
   hadc1.Init.DMAContinuousRequests = DISABLE;
-  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;//ADC_EOC_SINGLE_CONV;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
   {
     Error_Handler();

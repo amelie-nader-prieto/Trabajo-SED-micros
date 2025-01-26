@@ -3,5 +3,5 @@
 ../Core/Src/stm32f4xx_hal_msp.c:125:6:HAL_ADC_MspDeInit	16	static
 ../Core/Src/stm32f4xx_hal_msp.c:155:6:HAL_I2C_MspInit	48	static
 ../Core/Src/stm32f4xx_hal_msp.c:191:6:HAL_I2C_MspDeInit	16	static
-../Core/Src/stm32f4xx_hal_msp.c:222:6:HAL_I2S_MspInit	48	static
-../Core/Src/stm32f4xx_hal_msp.c:290:6:HAL_I2S_MspDeInit	16	static
+../Core/Src/stm32f4xx_hal_msp.c:222:6:HAL_I2S_MspInit	56	static
+../Core/Src/stm32f4xx_hal_msp.c:298:6:HAL_I2S_MspDeInit	16	static
